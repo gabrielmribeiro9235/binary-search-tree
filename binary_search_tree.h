@@ -6,5 +6,8 @@ typedef struct _node {
     struct _node *left;
     struct _node *right;
 } t_node;
+typedef struct {
+    t_node *root;
+} t_tree;
 
 #endif
