@@ -144,3 +144,17 @@ static int total_nodes_recursive(t_node *root) {
 int total_nodes(t_tree *tree) {
     return tree == NULL ? 0 : total_nodes_recursive(tree->root);
 }
+
+t_node* search(t_tree *tree, int item) {
+    if (tree == NULL) {
+        return NULL;
+    }
+
+    t_node *current = tree->root;
+
+    while (current != NULL && current->item != item) {
+        current = item > current->item ? current->right : current->left;
+    }
+
+    return current;
+}
