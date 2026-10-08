@@ -132,3 +132,11 @@ static int height_recursive(t_node *root) {
 int height(t_tree *tree) {
     return tree == NULL ? 0 : height_recursive(tree->root);
 }
+
+static int total_nodes_recursive(t_node *root) {
+    if (root == NULL) {
+        return 0;
+    }
+
+    return 1 + total_nodes_recursive(root->left) + total_nodes_recursive(root->right);
+}
