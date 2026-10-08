@@ -128,3 +128,7 @@ static int height_recursive(t_node *root) {
 
     return left_height > right_height ? left_height : right_height;
 }
+
+int height(t_tree *tree) {
+    return tree == NULL ? 0 : height_recursive(tree->root);
+}
