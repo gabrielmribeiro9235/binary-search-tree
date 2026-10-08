@@ -168,3 +168,13 @@ void pre_order(t_node *root) {
     pre_order(root->left);
     pre_order(root->right);
 }
+
+void in_order(t_node *root) {
+    if (root == NULL) {
+        return;
+    }
+
+    in_order(root->left);
+    printf("%d\t", root->item);
+    in_order(root->right);
+}
