@@ -68,11 +68,9 @@ int insert(t_tree *tree, int item) {
         if ((*aux)->item == item) {
             free(new_node);
             return 0;
-        } else if (item > (*aux)->item) {
-            aux = &((*aux)->right);
-        } else {
-            aux = &((*aux)->left);
         }
+
+        aux = item > (*aux)->item ? &((*aux)->right) : &((*aux)->left);
     }
 
     *aux = new_node;
