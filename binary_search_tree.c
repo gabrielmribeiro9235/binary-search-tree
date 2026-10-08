@@ -50,3 +50,32 @@ void destroy_tree(t_tree *tree) {
 int is_empty(t_tree *tree) {
     return tree == NULL || tree->root == NULL;
 }
+
+int insert(t_tree *tree, int item) {
+    if (tree == NULL) {
+        return -1;
+    }
+
+    t_node *new_node = create_node(item);
+
+    if (new_node == NULL) {
+        return -1;
+    }
+
+    t_node **aux = &(tree->root);
+
+    while (*aux != NULL) {
+        if ((*aux)->item == item) {
+            free(new_node);
+            return 0;
+        } else if (item > (*aux)->item) {
+            aux = &((*aux)->right);
+        } else {
+            aux = &((*aux)->left);
+        }
+    }
+
+    *aux = new_node;
+
+    return 1;
+}
