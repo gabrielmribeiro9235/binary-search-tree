@@ -27,3 +27,13 @@ t_node* create_node(int item) {
 
     return node;
 }
+
+static void destroy_branch(t_node *root) {
+    if (root == NULL) {
+        return;
+    }
+
+    destroy_branch(root->left);
+    destroy_branch(root->right);
+    free(root);
+}
