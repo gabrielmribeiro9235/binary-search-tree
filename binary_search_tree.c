@@ -37,3 +37,12 @@ static void destroy_branch(t_node *root) {
     destroy_branch(root->right);
     free(root);
 }
+
+void destroy_tree(t_tree *tree) {
+    if (tree == NULL) {
+        return;
+    }
+
+    destroy_branch(tree->root);
+    free(tree);
+}
