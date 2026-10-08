@@ -140,3 +140,7 @@ static int total_nodes_recursive(t_node *root) {
 
     return 1 + total_nodes_recursive(root->left) + total_nodes_recursive(root->right);
 }
+
+int total_nodes(t_tree *tree) {
+    return tree == NULL ? 0 : total_nodes_recursive(tree->root);
+}
