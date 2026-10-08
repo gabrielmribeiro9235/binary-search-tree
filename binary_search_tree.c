@@ -79,3 +79,43 @@ int insert(t_tree *tree, int item) {
 
     return 1;
 }
+
+int remove_node(t_tree *tree, int item) {
+    if (tree == NULL) {
+        return 0;
+    }
+
+    t_node **aux = &(tree->root);
+
+    while (*aux != NULL && (*aux)->item != item) {
+        aux = item > (*aux)->item ? &((*aux)->right) : &((*aux)->left);
+    }
+
+    if (*aux == NULL) {
+        return 0;
+    }
+
+    if ((*aux)->left == NULL || (*aux)->right == NULL) {
+        t_node *temp = (*aux)->right == NULL ? (*aux)->left : (*aux)->right;
+
+        free(*aux);
+        *aux = temp;
+
+        return 1;
+    }
+
+    t_node **predecessor = (*aux)->left;
+
+    while ((*predecessor)->right != NULL) {
+        predecessor = &((*predecessor)->right);
+    }
+
+    (*aux)->item = (*predecessor)->item;
+
+    t_node *temp = (*predecessor)->left;
+
+    free(*predecessor);
+    *predecessor = temp;
+
+    return 1;
+}
