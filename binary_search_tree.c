@@ -117,3 +117,14 @@ int remove_node(t_tree *tree, int item) {
 
     return 1;
 }
+
+static int height_recursive(t_node *root) {
+    if (root == NULL) {
+        return 0;
+    }
+
+    int left_height = 1 + height_recursive(root->left);
+    int right_height = 1 + height_recursive(root->right);
+
+    return left_height > right_height ? left_height : right_height;
+}
