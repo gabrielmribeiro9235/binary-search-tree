@@ -64,7 +64,7 @@ int main() {
                 printf("Insert the value of the node you want\nto search for: ");
                 scanf("%d", &item);
 
-                t_node *node = search(tree->root, item);
+                t_node *node = search(tree, item);
 
                 if (node != NULL) {
                     printf("\nNode:\n");
@@ -94,7 +94,7 @@ int main() {
                 printf("Insert the value of the node you want\nto remove: ");
                 scanf("%d", &item);
 
-                int remove_status = remove_node(tree, search(tree->root, item));
+                int remove_status = remove_node(tree, item);
 
                 if (remove_status) {
                     printf("\n%d successfully removed\n", item);
