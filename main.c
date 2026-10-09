@@ -39,7 +39,7 @@ int main() {
                 int insert_status = insert(tree, item);
 
                 if (insert_status) {
-                    printf("\n%d inserted successfully\n");
+                    printf("\n%d inserted successfully\n", item);
                 } else {
                     printf("\nFailed to insert\n");
                 }
