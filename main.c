@@ -135,6 +135,12 @@ int main() {
                 printf("\n");
 
                 break;
+            case 10:
+                printf("-----------------------------------------------\n");
+
+                width_traversal(tree);
+
+                break;
             default:
                 break;
         }
