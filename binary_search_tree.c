@@ -102,7 +102,7 @@ int remove_node(t_tree *tree, int item) {
         return 1;
     }
 
-    t_node **predecessor = (*aux)->left;
+    t_node **predecessor = &((*aux)->left);
 
     while ((*predecessor)->right != NULL) {
         predecessor = &((*predecessor)->right);
